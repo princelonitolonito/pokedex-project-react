@@ -26,6 +26,10 @@
 
   text-align: center;
   color: purple;
+  display: block;
+  position: inherit;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .myElement {
@@ -33,4 +37,11 @@
   font-weight: bold;
  }
 
- 
+ .App{
+   /* Set the background image URL and other properties as needed */
+   background: url('https://pbs.twimg.com/media/FVdYl2SUUAA1Pe3.png:large') center/cover no-repeat;
+   /* Additional styling if needed */
+   height: 100vh; /* Adjust the height as needed */
+
+   
+ }

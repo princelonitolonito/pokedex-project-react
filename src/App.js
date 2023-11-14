@@ -17,7 +17,7 @@ function App() {
       {gameStarted ? Pokecard.PokeCard():  
       <div>
         <h1 className="titlePokedex">PokeDex</h1>
-        <div><button onClick={handleGameStarted}> Start Game </button></div>
+        <div className="titlePokedex"><button onClick={handleGameStarted}> Start Game </button></div>
       <div className="grid-container">
       
         {Pokedex.map(pokemon => (
