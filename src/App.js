@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import Pokedex from "./Pokedex";
 import './App.css';
-
+import Pokecard from "./Pokecard";
+import { useState } from "react";
 function App() {
+
+  const [gameStarted, setGameStarted] = useState(false);
+
+  const handleGameStarted = () =>{
+    setGameStarted(true);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+     
+      {gameStarted ? Pokecard.PokeCard():  
+      <div>
+        <h1 className="titlePokedex">PokeDex</h1>
+        <div><button onClick={handleGameStarted}> Start Game </button></div>
+      <div className="grid-container">
+      
+        {Pokedex.map(pokemon => (
+       <div key={pokemon.id} className="grid-item"> 
+         <img src={pokemon.pic} alt={pokemon.name} />
+         <p className="myElement">{pokemon.name}</p>
+         <p>Type: {pokemon.type}</p>
+         <p>Base Experience: {pokemon.base_experience}</p>
+
+       </div>  
+     ))}
+
+ </div>
+ </div>
+ };
+
+      
+
+ 
     </div>
   );
 }
