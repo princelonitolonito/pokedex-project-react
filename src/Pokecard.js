@@ -28,24 +28,27 @@ function PokeCard() {
             <div className="titlePokedex">
             {playerATotalExperience > playerBTotalExperience ? 
 
-            <b>Player A Wins!</b>
+            <h1>Player A Wins!</h1>
             : 
-            <b>Player B Wins!</b>
+            <h1>Player B Wins!</h1>
         }
 
         </div>
             
         <div className="grid-container">
              {playerAShuffled.map(pokemon => (
-            <div key={pokemon.id} className="grid-item"> 
-            <img src={pokemon.pic} alt={pokemon.name} />
+            <div key={pokemon.id} className={`grid-item`}>
+
+              <div className="">  
+
+            <img src={pokemon.pic} alt={pokemon.name} className="vert-move"/>
             <p className="myElement">{pokemon.name}</p>
-            <p>Type: {pokemon.type}</p>
-            <p>Base Experience: {pokemon.base_experience}</p>
+            <p className={`type-test ${pokemon.type}`}> {pokemon.type}</p>
+            <p>Base Experience:  <span>{pokemon.base_experience}</span></p>
             
             </div>  
     
-   
+            </div>
           
       ))}
          
@@ -63,11 +66,11 @@ function PokeCard() {
         <div className="grid-container">
         
                 {playerBShuffled.map(pokemon => (
-            <div key={pokemon.id} className="grid-item"> 
-            <img src={pokemon.pic} alt={pokemon.name} />
+            <div key={pokemon.id} className="grid-item" > 
+            <img src={pokemon.pic} alt={pokemon.name} className="vert-move"/>
             <p className="myElement">{pokemon.name}</p>
-            <p>Type: {pokemon.type}</p>
-            <p>Base Experience: {pokemon.base_experience}</p>
+            <p className={`type-test ${pokemon.type}`}> {pokemon.type}</p>
+            <p>Base Experience:  <span>{pokemon.base_experience}</span></p>
 
                 </div>  
 

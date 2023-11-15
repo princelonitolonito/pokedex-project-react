@@ -4,19 +4,27 @@
   gap: 10px; /* Adjust the gap between items as needed */
   justify-content: center;
   justify-items: center;
+
 }
 
 .grid-item {
   display: block;
-  border: 1px solid #FFD966;
+
   padding: 10px;
  align-content: center;
- background-color: #FFF2CC;
- box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.5);
+ background-color: #ffee62;
+ box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.2);
  height: 90%;
  width: 50%;
  text-align: center;
+ border-radius: 15%;
+border-color: #e3d44d;
+
+ 
 }
+
+
+
 
 .body{
   background-color: #FFD966;
@@ -25,23 +33,198 @@
 .titlePokedex{
 
   text-align: center;
-  color: purple;
+  color: rgb(6, 6, 128);
   display: block;
-  position: inherit;
+
   margin-top: 10px;
   margin-bottom: 10px;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5); 
+}
+
+.imgPokedex{
+  display: block;
+  margin-left: 42%;
+ width: 250px;
 }
 
 .myElement {
-  color: purple;
+  color: rgb(35, 42, 152);
   font-weight: bold;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5); 
+  
  }
 
  .App{
    /* Set the background image URL and other properties as needed */
-   background: url('https://pbs.twimg.com/media/FVdYl2SUUAA1Pe3.png:large') center/cover no-repeat;
-   /* Additional styling if needed */
+   background-color:  white;
    height: 100vh; /* Adjust the height as needed */
 
    
  }
+
+ p{
+  color:  #523929;
+  font-weight: 400;
+ }
+
+ span{
+  color:rgb(244, 20, 20);
+  font-weight: bold;
+  font-size: large;
+ }
+
+ .playGame {
+  width: 140px;
+  height: 40px;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5); 
+
+ gap: 10px;
+  padding: 0px 15px;
+  background-color: rgb(6, 6, 128);
+  border-radius: 10px;
+  border: none;
+  color: white;
+
+  cursor: pointer;
+  font-weight: 900;
+  transition-duration: .2s;
+  box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.2);  
+}
+
+.playGame path {
+  color: white;
+}
+
+.playGame .arrow {
+  position: absolute;
+  right: 0;
+  padding: 0px 5px;
+  width: 30px;
+  height: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playGame:hover,
+.playGame:focus {
+  background-color: #523929;
+  transition-duration: .2s;
+}
+
+.playGame:hover .arrow {
+  animation: slide-right .6s ease-out both;
+}
+/* arrow animation */
+@keyframes slide-right {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.playGame:active {
+  transform: translate(1px , 1px);
+  transition-duration: .2s;
+}
+
+/* Define keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Define keyframes for cinematic wipe animation */
+@keyframes wipeCinematicIn {
+  0% {
+    clip-path: inset(100% 0 100% 0);
+  }
+  
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Apply the animation to the content you want to wipe in */
+.page-transition {
+  animation: wipeCinematicIn 1s ease-in-out; /* You can adjust the duration and timing function */
+
+}
+
+.box{
+
+  position: absolute;
+  top: 50%;  left: 50%;
+  transform: translate(-50%,-50%);
+ 
+}
+
+.grid-item:hover{
+  
+  box-shadow: 0 0 30px 5px #eaed50;
+}
+
+
+
+img.vert-move {
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 0.5s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-30px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+.type-test{
+  padding: 5px;
+ align-content: center;
+ background-color: rgb(52, 193, 249);
+ border-radius: 50%;
+ width: 50%;
+  margin-left: 23%;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5); 
+}
+
+.type-test.fire{
+  background-color: rgb(255, 140, 0);
+}
+
+
+.type-test.water{
+  background-color: aqua;
+}
+
+.type-test.bug{
+  background-color: green;
+}
+
+.type-test.flying{
+  background-color: rgb(201, 201, 201);
+}
+.type-test.electric{
+  background-color: yellow;  
+}
+.type-test.normal{
+  background-color: rgb(133, 75, 33);  
+}
+.type-test.poison{
+  background-color: purple;  
+}
+
