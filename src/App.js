@@ -38,16 +38,28 @@ function App() {
           </button>
 
           <div className="grid-container">
+          
             {Pokedex.map((pokemon) => (
               <div key={pokemon.id} className="grid-item">
+                <div className="flipper">
+                  <div className="front"> 
                 <img src={pokemon.pic} alt={pokemon.name} />
                 <p className="myElement">{pokemon.name}</p>
                 <p className={`type-test ${pokemon.type}`}> {pokemon.type}</p>
                 <p>
                   Base Experience: <span>{pokemon.base_experience}</span>
                 </p>
+                </div>
+                
+                
+                <div className="back">
+                <img src="https://www.pngkit.com/png/full/241-2416981_pokemon-card-back-png-pokemon-tcg-card-back.png" ></img>
+                
+                  </div>
+                </div>
               </div>
             ))}
+           
           </div>
         </div>
       )}

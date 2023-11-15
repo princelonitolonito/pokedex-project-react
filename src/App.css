@@ -6,41 +6,34 @@
   /* Adjust the gap between items as needed */
   justify-content: center;
   justify-items: center;
-
 }
 
 .grid-item {
-  display: block;
 
-  padding: 10px;
   align-content: center;
   background-color: #ffee62;
   box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.2);
-  height: 90%;
-  width: 50%;
+  height: auto;
+  width: auto;
   text-align: center;
-  border-radius: 15%;
-  border-color: #e3d44d;
-
-
+  /* border-radius: 15%;
+  border-color: #e3d44d; */
+  
 }
 
-.grid-item.in-battle{
+.grid-item.in-battle {
   height: fit-content;
   margin-bottom: 10%;
 }
 
-
 .body {
-  background-color: #FFD966;
+  background-color: #ffd966;
 }
 
 .titlePokedex {
-
   text-align: center;
   color: rgb(255, 255, 255);
   display: block;
-
   margin-top: 10px;
   margin-bottom: 10px;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
@@ -49,9 +42,8 @@
   box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.5);
   margin-top: 10px;
   border-radius: 50%;
-  margin-left: 42%; 
+  margin-left: 42%;
   padding: 10px;
-
 }
 
 .imgPokedex {
@@ -64,7 +56,6 @@
   color: rgb(35, 42, 152);
   font-weight: bold;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
-
 }
 
 .App {
@@ -72,8 +63,6 @@
   background-color: white;
   height: 100vh;
   /* Adjust the height as needed */
-
-
 }
 
 p {
@@ -101,8 +90,9 @@ span {
   margin-left: 45%;
   cursor: pointer;
   font-weight: 900;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
 }
 
 .playGame path {
@@ -124,11 +114,11 @@ span {
 .playGame:hover,
 .playGame:focus {
   background-color: #523929;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
 }
 
 .playGame:hover .arrow {
-  animation: slide-right .6s ease-out both;
+  animation: slide-right 0.6s ease-out both;
 }
 
 /* arrow animation */
@@ -146,7 +136,7 @@ span {
 
 .playGame:active {
   transform: translate(1px, 1px);
-  transition-duration: .2s;
+  transition-duration: 0.2s;
 }
 
 /* Define keyframes for fade-in animation */
@@ -175,24 +165,14 @@ span {
 .page-transition {
   animation: wipeCinematicIn 1s ease-in-out;
   /* You can adjust the duration and timing function */
-
 }
 
 .box {
-
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
 }
-
-.grid-item:hover {
-
-  box-shadow: 0 0 30px 5px #eaed50;
-}
-
-
 
 img.vert-move {
   -webkit-animation: mover 2s infinite alternate;
@@ -236,7 +216,6 @@ img.vert-move {
   background-color: rgb(255, 140, 0);
 }
 
-
 .type-test.water {
   background-color: aqua;
 }
@@ -261,8 +240,7 @@ img.vert-move {
   background-color: purple;
 }
 
-.container{
-
+.container {
   display: flex;
   flex-direction: row;
   gap: 100px;
@@ -272,11 +250,61 @@ img.vert-move {
   padding: 10px;
 }
 
-.pokemon-in-battle{
-
+.pokemon-in-battle {
 }
 
-.textInBattle{
+.textInBattle {
   font-size: 20px;
   font-weight: bold;
+}
+
+.grid-item {
+  -webkit-perspective: 1000;
+ 
+}
+/* flip the picture when hover */
+
+.grid-item:hover .flipper,
+.grid-item.hover .flipper {
+  -webkit-transform: rotateY(180deg);
+}
+
+.grid-item,
+.front,
+.back,
+img {
+ 
+}
+/* flip speed */
+
+.flipper {
+  -webkit-transition: 0.2s;
+  -webkit-transform-style: preserve-3d;
+  
+}
+/* hide back  during flip */
+
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  
+}
+/* front placed above back */
+
+.front {
+  z-index: 2;
+}
+/* back, initially hidden */
+
+.back {
+  -webkit-transform: rotateY(180deg);
+  position: absolute;
+}
+.back img {
+  height: 230px;
+  width: auto;
+  object-fit: contain;
+  
 }

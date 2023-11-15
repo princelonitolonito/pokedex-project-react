@@ -28,9 +28,9 @@ function PokeCard() {
     <div className="">
       <div className="titlePokedex">
         {playerATotalExperience > playerBTotalExperience ? (
-          <h1>Player A Wins!</h1>
+          <h1>Player Rocket Wins!</h1>
         ) : (
-          <h1>Player B Wins!</h1>
+          <h1>Player Boang Wins!</h1>
         )}
       </div>
 
