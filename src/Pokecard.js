@@ -1,87 +1,84 @@
 import Pokedex from "./Pokedex";
 
 function shuffleDeck(deck) {
-    for (let i = deck.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [deck[i], deck[j]] = [deck[j], deck[i]];
-    }
-
-    return deck;
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
   }
 
- 
+  return deck;
+}
+
 function PokeCard() {
-    
-    let shuffled = shuffleDeck(Pokedex);
-    
-    let playerAShuffled = [shuffled[0],shuffled[1],shuffled[2],shuffled[3]];
-    let playerBShuffled = [shuffled[4],shuffled[5],shuffled[6],shuffled[7]];
+  let shuffled = shuffleDeck(Pokedex);
 
-    let playerATotalExperience = [playerAShuffled[0].base_experience + playerAShuffled[1].base_experience + playerAShuffled[2].base_experience + playerAShuffled[3].base_experience];
-    let playerBTotalExperience = [playerBShuffled[0].base_experience + playerBShuffled[1].base_experience + playerBShuffled[2].base_experience + playerBShuffled[3].base_experience];
-    console.log(playerATotalExperience)
-    console.log(playerBTotalExperience)
+  let playerAShuffled = shuffled.slice(0, 4);
+  let playerBShuffled = shuffled.slice(4, 8);
+
+  let calculateTotalExperience = (player) =>
+  player.reduce((totalExperience, pokemon) => totalExperience + pokemon.base_experience, 0);
 
 
-    return(
-        <div className="">
-            <div className="titlePokedex">
-            {playerATotalExperience > playerBTotalExperience ? 
+  let playerATotalExperience = calculateTotalExperience(playerAShuffled);
+  let playerBTotalExperience = calculateTotalExperience(playerBShuffled);
+  console.log(playerATotalExperience);
+  console.log(playerBTotalExperience);
 
-            <h1>Player A Wins!</h1>
-            : 
-            <h1>Player B Wins!</h1>
-        }
+  return (
+    <div className="">
+      <div className="titlePokedex">
+        {playerATotalExperience > playerBTotalExperience ? (
+          <h1>Player A Wins!</h1>
+        ) : (
+          <h1>Player B Wins!</h1>
+        )}
+      </div>
 
-        </div>
-            
-        <div className="grid-container">
-             {playerAShuffled.map(pokemon => (
-            <div key={pokemon.id} className={`grid-item`}>
-
-              <div className="">  
-
-            <img src={pokemon.pic} alt={pokemon.name} className="vert-move"/>
-            <p className="myElement">{pokemon.name}</p>
-            <p className={`type-test ${pokemon.type}`}> {pokemon.type}</p>
-            <p>Base Experience:  <span>{pokemon.base_experience}</span></p>
-            
-            </div>  
-    
-            </div>
-          
-      ))}
-         
-
-         
+      <div className="container">
       
-        </div>
-        <div className="">
-        <b className="titlePokedex">Player A Experience: {playerATotalExperience}</b>
-                
-                <h1 className="titlePokedex">VS</h1>
-               
-        <b className="titlePokedex">Player B Experience: {playerBTotalExperience}</b>
-        </div>
-        <div className="grid-container">
+        {playerAShuffled.map((pokemon) => (
+          <div key={pokemon.id} >
+            <div className="">
+              <img src={pokemon.pic} alt={pokemon.name} className="vert-move" />
+              <p className="myElement">{pokemon.name}</p>
+              {/* <p className={`type-test ${pokemon.type}`}> {pokemon.type}</p> */}
+              <p>
+                Base Experience: <span>{pokemon.base_experience}</span>
+              </p>
+            </div>
+          </div>
+        ))}
+        <p className="textInBattle">Team Rocket</p>
+        <img src="https://play.pokemonshowdown.com/sprites/trainers/teamrocket.png" className="vert-move" />
+        <p className="textInBattle">Total Experience: <span> {playerATotalExperience}</span></p>
+      </div>
+  
         
-                {playerBShuffled.map(pokemon => (
-            <div key={pokemon.id} className="grid-item" > 
-            <img src={pokemon.pic} alt={pokemon.name} className="vert-move"/>
-            <p className="myElement">{pokemon.name}</p>
-            <p className={`type-test ${pokemon.type}`}> {pokemon.type}</p>
-            <p>Base Experience:  <span>{pokemon.base_experience}</span></p>
 
-                </div>  
+        <h1 className="titlePokedex">VS</h1>
 
-   
+      
+     
+       
           
-      ))}
+      <div className="container">
+        {playerBShuffled.map((pokemon) => (
+          <div key={pokemon.id}>
+            <img src={pokemon.pic} alt={pokemon.name} className="vert-move" />
+            <p className="myElement">{pokemon.name}</p>
+            {/* <p className={`type-test ${pokemon.type}`}> {pokemon.type}</p> */}
+            <p>
+              Base Experience: <span>{pokemon.base_experience}</span>
+            </p>
+          </div>
+        ))}
 
-                </div>
-                
-        </div>
-    );
+        <p className="textInBattle">Team Boang</p>
+        <img src="https://play.pokemonshowdown.com/sprites/trainers/red.png" className="vert-move" />
+        <p className="textInBattle">Total Experience:<span>{playerBTotalExperience} </span></p>
+      </div>
+    </div>
+  );
 }
 
 export default { PokeCard };
